@@ -21,7 +21,7 @@ public class AutoFire extends CommandGroup {
 	public	AutoFire()	{
 		if(seesTarget() && Robot.cannon.hasBall()) {
 			addParallel(new TrackTargetX());
-			addSequential(new TrackTargetY());
+			addSequential(new TrackTargetY());			
 			if(Robot.oi.getDriveStick().getRawButton(1)) {				
 				addSequential(new AimToFire());
 				addSequential(new FireCannon(), 1);				
