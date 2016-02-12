@@ -13,15 +13,14 @@ public class FireCannon extends Command {
 
 	
 	protected void execute() {
-		Robot.cannon.setFireLeft(100);
-		Robot.cannon.setFireRight(100);
-		Robot.cannon.setFeedBall(75);
-
+		Robot.cannon.setFireLeft(1);
+		Robot.cannon.setFireRight(1);
+	
 	}
 
 	
 	protected void initialize() {
-		
+		Robot.cannon.setFeedBall(75);		
 
 	}
 
