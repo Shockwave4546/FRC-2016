@@ -5,8 +5,16 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team4546.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4546.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+
+import org.usfirst.frc.team4546.robot.subsystems.Cannon;
+//import org.usfirst.frc.team4546.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4546.robot.subsystems.Drivetrain;
+
+//import org.usfirst.frc.team4546.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.tables.TableKeyNotDefinedException;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -15,35 +23,68 @@ import org.usfirst.frc.team4546.robot.subsystems.ExampleSubsystem;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
+
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static Drivetrain drivetrain;
+	public static Cannon cannon;
 	public static OI oi;
-
+	
+	//CameraServer camera;
+	public static NetworkTable table;
+	
     Command autonomousCommand;
+    SendableChooser chooser;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
+    
     public void robotInit() {
+    	RobotMap.init();	
+    	drivetrain = new Drivetrain();
+    	cannon = new Cannon();
 		oi = new OI();
-        // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
+        chooser = new SendableChooser();
+        
+        //camera = CameraServer.getInstance();
+        //camera.setQuality(50);
+        //camera.startAutomaticCapture("cam0");
+        
+//        chooser.addDefault("Default Auto", new ExampleCommand());
+//        chooser.addObject("My Auto", new MyAutoCommand());
+        
+        SmartDashboard.putData("Auto mode", chooser);
+        table = NetworkTable.getTable("Camera");
+        
+    }
+	
+	/**
+     * This function is called once each time the robot enters Disabled mode.
+     * You can use it to reset any subsystem information you want to clear when
+	 * the robot is disabled.
+     */
+    
+    public void disabledInit(){
+
     }
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 	}
 
+	
     public void autonomousInit() {
-        // schedule the autonomous command (example)
+        autonomousCommand = (Command) chooser.getSelected();
         if (autonomousCommand != null) autonomousCommand.start();
+        
     }
 
     /**
      * This function is called periodically during autonomous
      */
+    
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
@@ -57,24 +98,32 @@ public class Robot extends IterativeRobot {
     }
 
     /**
-     * This function is called when the disabled button is hit.
-     * You can use it to reset subsystems before shutting down.
-     */
-    public void disabledInit(){
-
-    }
-
-    /**
      * This function is called periodically during operator control
      */
+    
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+    	try
+    	{
+    			SmartDashboard.putNumber("centerX", table.getNumber("centerX", 0.0));
+    			SmartDashboard.putNumber("centerY", table.getNumber("centerY", 0.0));
+    			SmartDashboard.putNumber("midpointX", table.getNumber("midpointX", 0.0));
+    			SmartDashboard.putNumber("midpointY", table.getNumber("midpointY", 0.0));
+    	}
+    	catch (TableKeyNotDefinedException ex)
+    	{
+    	}
+    	SmartDashboard.putData(cannon);
+        
     }
     
     /**
      * This function is called periodically during test mode
      */
+    
     public void testPeriodic() {
         LiveWindow.run();
     }
+    
+    
 }
