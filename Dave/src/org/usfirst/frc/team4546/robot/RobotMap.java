@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -39,16 +40,23 @@ public class RobotMap {
 	public static CANTalon cannonPitchMotor;
 	public static CANTalon cannonFireLeft;
 	public static CANTalon cannonFireRight;
-	public static Servo cannonFeedBall;
+	public static Servo cannonFeedServo;
 	public static DigitalInput cannonLimitSwitch;
-	public static Potentiometer cannonPotentiometer;
+	public static AnalogInput cannonPitchEncoder;
+	public static AnalogInput cannonYawEncoder;
 	
 	public static void init()	{
 		
 		drivetrainLeft = new Talon(0);
+		LiveWindow.addActuator("Drivetrain", "Left Motor", (Talon) drivetrainLeft);
+		
 		drivetrainRight = new Talon(1);
+		LiveWindow.addActuator("Drivetrain", "Right Motor", (Talon) drivetrainRight);
 		
 		drivetrainChassis = new RobotDrive(drivetrainLeft, drivetrainRight);
+		
+		drivetrainAHRS = new AHRS(SPI.Port.kMXP);
+        LiveWindow.addActuator("Drivetrain", "Gyro", (AHRS) drivetrainAHRS);
 		
 		drivetrainChassis.setSafetyEnabled(true);
 		drivetrainChassis.setExpiration(0.1);
@@ -58,16 +66,29 @@ public class RobotMap {
         drivetrainChassis.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
         
         cannonYawMotor = new CANTalon(0);
+        LiveWindow.addActuator("Cannon", "Yaw Motor", (CANTalon) cannonYawMotor);
+        
         cannonPitchMotor = new CANTalon(1);
+        LiveWindow.addActuator("Cannon", "Pitch Motor", (CANTalon) cannonPitchMotor);
+        
         cannonFireLeft = new CANTalon(2);
+        LiveWindow.addActuator("Cannon", "Left Firing Motor", (CANTalon) cannonFireLeft);
+        
         cannonFireRight = new CANTalon(3);
+        LiveWindow.addActuator("Cannon", "Right Firing Motor", (CANTalon) cannonFireRight);
         
-        cannonFeedBall = new Servo(2);
+        cannonFeedServo = new Servo(2);
+        LiveWindow.addActuator("Cannon", "Feed Servo", (Servo) cannonFeedServo);
+        
         cannonLimitSwitch = new DigitalInput(0);
-        cannonPotentiometer = new AnalogPotentiometer(1, 360, 30); //http://wpilib.screenstepslive.com/s/4485/m/13809/l/241877-potentiometers-measuring-joint-angle-or-linear-motion
+        LiveWindow.addSensor("Cannon", "Limit Switch", (DigitalInput) cannonLimitSwitch);
         
-        drivetrainAHRS = new AHRS(SPI.Port.kMXP);
-                                
+        cannonPitchEncoder = new AnalogInput(0);
+        LiveWindow.addSensor("Cannon", "Pitch Encoder", (AnalogInput) cannonPitchEncoder);
+        
+        cannonYawEncoder = new AnalogInput(1);
+        LiveWindow.addSensor("Cannon", "Yaw Encoder", (AnalogInput) cannonYawEncoder);
+        
 	}
 	
 }
