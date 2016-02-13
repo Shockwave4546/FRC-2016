@@ -13,8 +13,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Drivetrain extends Subsystem {
 	
 	AHRS drivetrainAHRS = RobotMap.drivetrainAHRS;
-	CANTalon left = RobotMap.drivetrainLeft;
-	CANTalon right = RobotMap.drivetrainRight;
+	Talon left = RobotMap.drivetrainLeft;
+	Talon right = RobotMap.drivetrainRight;
 	RobotDrive chassis = RobotMap.drivetrainChassis;
 	
 	protected void initDefaultCommand() {
