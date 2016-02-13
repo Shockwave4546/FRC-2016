@@ -8,7 +8,7 @@ This year's robot (hopefully) features automated tracking of the goal as well as
 
 Check whatever the error is pointing to, usually a subsystem or initialization method. Ensure that every object being referenced has been initialized. In the case of a two-motor drivetrain, ensure that the inverted motor is being referred to as kRearRight or kRearLeft (The robotdrive class allocates two-motor drivetrains to the rear two motors). Another common fix is ensuring that RobotMap.init() is called in the robot's initialization method.
 
--Driver Station gives error "Unknown error status at edu.wpi.first.wpilibj.hal.HALUtil.checkStatus(HALUtil.java:51)" as well as no power to bridge/pnuematics 
+-Driver Station gives error "Unknown error status at edu.wpi.first.wpilibj.hal.HALUtil.checkStatus(HALUtil.java:51)" as well as no power to bridge/pnuematics/roborio 
 
 Check fuses on the PDP
 
