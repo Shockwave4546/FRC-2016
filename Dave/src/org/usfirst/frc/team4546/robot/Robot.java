@@ -102,6 +102,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
+        //Send necessary values to dashboard
     	SmartDashboard.putNumber("Target X Location", table.getNumber("midpointX", 0.0));
     	SmartDashboard.putNumber("Target Y Location", table.getNumber("midpointY", 0.0));
     	SmartDashboard.putNumber("Gyro Angle", drivetrain.getAngle());
