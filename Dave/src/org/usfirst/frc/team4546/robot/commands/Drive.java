@@ -6,7 +6,9 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Drive extends Command {
 		
-public Drive()	{
+	//This command handles driving the robot
+	
+	public Drive()	{
 		
 		requires(Robot.drivetrain);
 	}

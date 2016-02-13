@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class AimToFire extends Command {
 	
+	//This command pitches the turret to the correct firing angle
+	
 	double theta = Robot.cannon.getPitch();
 	
 	double cannonHeight;	//Physically Measured

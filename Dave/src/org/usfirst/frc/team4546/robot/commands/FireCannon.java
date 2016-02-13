@@ -6,8 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class FireCannon extends Command {
 	
+	//This command handles firing the cannon
+	
 	protected void end() {
-		Robot.cannon.setFeedBall(0.0);
+		Robot.cannon.setFeedServo(0.0);
 
 	}
 
@@ -20,7 +22,7 @@ public class FireCannon extends Command {
 
 	
 	protected void initialize() {
-		Robot.cannon.setFeedBall(75);		
+		Robot.cannon.setFeedServo(75);		
 
 	}
 

@@ -17,22 +17,28 @@ public class Drivetrain extends Subsystem {
 	Talon right = RobotMap.drivetrainRight;
 	RobotDrive chassis = RobotMap.drivetrainChassis;
 	
+	//Drivetrain will pretty much always drive
 	protected void initDefaultCommand() {
 		setDefaultCommand(new Drive());	
 	}	
 	
+	//Pass a forward speed, a rotation value, and an optional speed multiplier
+	//Set speed to 1 to disable multiplier
 	public void drive(double magnitude, double rotate, double speed)	{		
 		chassis.arcadeDrive(magnitude*speed, rotate*speed);
 	}
 	
+	//Get the yaw of the drivetrain itself
 	public double getAngle() {
 		return drivetrainAHRS.getAngle();
 	}
 
+	//Zero the yaw value of the gyro
 	public void zeroYaw() {
 		drivetrainAHRS.zeroYaw();
 	}
 	
+	//Reset the gyro
 	public void reset() {
 		drivetrainAHRS.reset();
 	}		

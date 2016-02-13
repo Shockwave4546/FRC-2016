@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 
 public class TrackTargetY extends PIDCommand {
 
+	//This command handles tracking the target on the Y-axis
+	
 	static double p = 0.01;
 	static double i = 0;
 	static double d = 0;

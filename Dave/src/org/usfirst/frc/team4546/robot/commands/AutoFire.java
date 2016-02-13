@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutoFire extends CommandGroup {
 	
+	//This command group handles the automatic targeting and firing process
+	
 	double midpointX = Robot.table.getNumber("midpointX", 0.0);
 	double midpointY = Robot.table.getNumber("midpointY", 0.0);
 	

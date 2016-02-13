@@ -17,50 +17,61 @@ public class Cannon extends Subsystem {
 	CANTalon fireLeft = RobotMap.cannonFireLeft;
 	CANTalon yawMotor = RobotMap.cannonYawMotor;
 	CANTalon pitchMotor = RobotMap.cannonPitchMotor;
-	Servo feedBall = RobotMap.cannonFeedServo;
-	DigitalInput limitSwitch = RobotMap.cannonLimitSwitch;
+	Servo feedServo = RobotMap.cannonFeedServo;
+	DigitalInput ballLimit = RobotMap.cannonLimitSwitch;
 	AnalogInput pitchEncoder = RobotMap.cannonPitchEncoder;
 	AnalogInput yawEncoder = RobotMap.cannonYawEncoder;
 	
+	//Set speed of pitch motor
 	public void setPitchMotor(double speed) {
 		pitchMotor.set(speed);
 	}
 	
+	//Set speed of yaw motor
 	public void setYawMotor(double speed) {
 		yawMotor.set(speed);
 	}
 	
+	//Set speed of left firing motor
 	public void setFireLeft(double speed) {
 		fireLeft.set(speed);
 	}
 	
+	//Set speed of right firing motor
 	public void setFireRight(double speed) {
 		fireRight.set(speed);
 	}
 	
-	public void setFeedBall(double servoAngle) {
-		feedBall.setAngle(servoAngle);
+	//Set angle of feed servo
+	public void setFeedServo(double servoAngle) {
+		feedServo.setAngle(servoAngle);
 	}
 	
+	//Returns true when ball is loaded
 	public boolean hasBall()	{
 		
-		return limitSwitch.get();
+		return ballLimit.get();
 	}
+	
+	//Raw encoder voltage for debug
 	public double getRawPitch()	{
 		
 		return pitchEncoder.getVoltage();
 	}
 	
+	//Pitch of cannon
 	public double getPitch()	{
 		
 		return 72*pitchEncoder.getVoltage();
 	}
 	
+	//Raw encoder voltage for debug
 	public double getRawYaw()	{
 		
 		return yawEncoder.getVoltage();
 	}
 	
+	//Yaw of cannon
 	public double getYaw()	{
 		
 		return 72*yawEncoder.getVoltage();

@@ -43,20 +43,23 @@ public class OI {
 		driveStick = new Joystick(0);		
 	}
 	
-	   Button trigger = new JoystickButton(driveStick, 1);
-       //Button thumbButton = new JoystickButton(driveStick, 2);
-       //Button threeButton = new JoystickButton(driveStick, 3);
-       //Button fourButton = new JoystickButton(driveStick, 4);
-       //Button fiveButton= new JoystickButton(driveStick, 5);
-       //Button sixButton = new JoystickButton(driveStick, 6);
-       //Button sevenButton = new JoystickButton(driveStick, 7);
-       //Button eightButton = new JoystickButton(driveStick, 8);
-       //Button nineButton = new JoystickButton(driveStick, 9);
-       //Button tenButton = new JoystickButton(driveStick, 10);
-       //Button elevenButton = new JoystickButton(driveStick, 11);
-       //Button twelveButton = new JoystickButton(driveStick, 12);
+		//Joystick buttons
+		//Uncomment any button to open it for binding
+	   	Button trigger = new JoystickButton(driveStick, 1);
+	   	//Button thumbButton = new JoystickButton(driveStick, 2);
+	   	//Button threeButton = new JoystickButton(driveStick, 3);
+	   	//Button fourButton = new JoystickButton(driveStick, 4);
+	   	//Button fiveButton= new JoystickButton(driveStick, 5);
+	   	//Button sixButton = new JoystickButton(driveStick, 6);
+	   	//Button sevenButton = new JoystickButton(driveStick, 7);
+	   	//Button eightButton = new JoystickButton(driveStick, 8);
+	   	//Button nineButton = new JoystickButton(driveStick, 9);
+	   	//Button tenButton = new JoystickButton(driveStick, 10);
+	   	//Button elevenButton = new JoystickButton(driveStick, 11);
+	   	//Button twelveButton = new JoystickButton(driveStick, 12);
 	
-	public Joystick getDriveStick()	{		
+	   	//Used to access joystick values
+	   	public Joystick getDriveStick()	{		
 		return driveStick;
 	}
 }

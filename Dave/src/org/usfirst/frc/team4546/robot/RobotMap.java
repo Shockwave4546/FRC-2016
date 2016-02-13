@@ -47,6 +47,7 @@ public class RobotMap {
 	
 	public static void init()	{
 		
+		//Drivetrain Objects
 		drivetrainLeft = new Talon(0);
 		LiveWindow.addActuator("Drivetrain", "Left Motor", (Talon) drivetrainLeft);
 		
@@ -58,7 +59,8 @@ public class RobotMap {
 		drivetrainAHRS = new AHRS(SPI.Port.kMXP);
         LiveWindow.addActuator("Drivetrain", "Gyro", (AHRS) drivetrainAHRS);
 		
-		drivetrainChassis.setSafetyEnabled(true);
+		//Drivetrain config
+        drivetrainChassis.setSafetyEnabled(true);
 		drivetrainChassis.setExpiration(0.1);
         drivetrainChassis.setSensitivity(0.5);
         drivetrainChassis.setMaxOutput(1.0);
@@ -68,6 +70,7 @@ public class RobotMap {
         cannonYawMotor = new CANTalon(0);
         LiveWindow.addActuator("Cannon", "Yaw Motor", (CANTalon) cannonYawMotor);
         
+        //Cannon objects
         cannonPitchMotor = new CANTalon(1);
         LiveWindow.addActuator("Cannon", "Pitch Motor", (CANTalon) cannonPitchMotor);
         

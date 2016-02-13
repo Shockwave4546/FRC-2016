@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class YawCannon extends Command {
 	
+	//This command controls the yaw of the cannon
+	
 	double speed;
 
 	public YawCannon(double speed) {

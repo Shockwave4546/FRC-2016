@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class TrackTargetX extends PIDCommand {
 
+	//This command handles tracking the target along the X-axis
+	
 	static double p = 0.01;
 	static double i = 0;
 	static double d = 0;

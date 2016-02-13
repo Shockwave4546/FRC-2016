@@ -5,7 +5,11 @@ import org.usfirst.frc.team4546.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class PitchCannon extends Command {
+	
+	//This command handles pitching the cannon
+	
 	double speed;
+	
 	public PitchCannon(double speed) {
 		this.speed = speed;
 	}

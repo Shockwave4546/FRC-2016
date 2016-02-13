@@ -52,10 +52,8 @@ public class Robot extends IterativeRobot {
         //camera.setQuality(50);
         //camera.startAutomaticCapture("cam0");
         
-//        chooser.addDefault("Default Auto", new ExampleCommand());
-//        chooser.addObject("My Auto", new MyAutoCommand());
         
-        SmartDashboard.putData("Auto mode", chooser);
+        //SmartDashboard.putData("Auto mode", chooser);
         table = NetworkTable.getTable("Camera");
         
     }
@@ -103,16 +101,13 @@ public class Robot extends IterativeRobot {
     
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-    	try
-    	{
-    			SmartDashboard.putNumber("centerX", table.getNumber("centerX", 0.0));
-    			SmartDashboard.putNumber("centerY", table.getNumber("centerY", 0.0));
-    			SmartDashboard.putNumber("midpointX", table.getNumber("midpointX", 0.0));
-    			SmartDashboard.putNumber("midpointY", table.getNumber("midpointY", 0.0));
-    	}
-    	catch (TableKeyNotDefinedException ex)
-    	{
-    	}
+        
+    	SmartDashboard.putNumber("Target X Location", table.getNumber("midpointX", 0.0));
+    	SmartDashboard.putNumber("Target Y Location", table.getNumber("midpointY", 0.0));
+    	SmartDashboard.putNumber("Gyro Angle", drivetrain.getAngle());
+    	SmartDashboard.putNumber("Cannon Yaw", cannon.getYaw());
+    	SmartDashboard.putNumber("Cannon Pitch", cannon.getPitch());
+    	SmartDashboard.putBoolean("Has Ball?", cannon.hasBall());
     	SmartDashboard.putData(cannon);
     	SmartDashboard.putData(drivetrain);
         
