@@ -16,8 +16,9 @@ public class Cannon extends Subsystem {
 	CANTalon fireLeft = RobotMap.cannonFireLeft;
 	CANTalon yawMotor = RobotMap.cannonYawMotor;
 	CANTalon pitchMotor = RobotMap.cannonPitchMotor;
-	Servo feedBall = RobotMap.cannonFeedBall;
+	Servo feedBall = RobotMap.cannonFeedServo;
 	DigitalInput limitSwitch = RobotMap.cannonLimitSwitch;
+	
 	public void setPitchMotor(double speed) {
 		pitchMotor.set(speed);
 	}
