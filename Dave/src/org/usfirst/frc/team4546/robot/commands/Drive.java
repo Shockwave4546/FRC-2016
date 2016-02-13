@@ -16,7 +16,7 @@ public Drive()	{
 	}
 
 	protected void execute() {
-		Robot.drivetrain.drive(Robot.oi.getDriveStick().getY(), Robot.oi.getDriveStick().getZ(), 1);
+		Robot.drivetrain.drive(Robot.oi.getDriveStick().getZ(), Robot.oi.getDriveStick().getY(), 1);
 	}
 
 	protected boolean isFinished() {

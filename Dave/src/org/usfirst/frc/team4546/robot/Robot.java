@@ -114,6 +114,7 @@ public class Robot extends IterativeRobot {
     	{
     	}
     	SmartDashboard.putData(cannon);
+    	SmartDashboard.putData(drivetrain);
         
     }
     

@@ -31,12 +31,12 @@ public class RobotMap {
     // public static int rangefinderModule = 1;
 	
 	public static AHRS drivetrainAHRS;
-	public static Talon drivetrainLeft;
-	public static Talon drivetrainRight;
+	public static CANTalon drivetrainLeft;
+	public static CANTalon drivetrainRight;
 	public static RobotDrive drivetrainChassis;	
 	
-	public static CANTalon cannonYawMotor;
-	public static CANTalon cannonPitchMotor;
+	public static Talon cannonYawMotor;
+	public static Talon cannonPitchMotor;
 	public static CANTalon cannonFireLeft;
 	public static CANTalon cannonFireRight;
 	public static Servo cannonFeedBall;
@@ -45,8 +45,8 @@ public class RobotMap {
 	
 	public static void init()	{
 		
-		drivetrainLeft = new Talon(0);
-		drivetrainRight = new Talon(1);
+		drivetrainLeft = new CANTalon(0);
+		drivetrainRight = new CANTalon(1);
 		
 		drivetrainChassis = new RobotDrive(drivetrainLeft, drivetrainRight);
 		
@@ -57,8 +57,8 @@ public class RobotMap {
         
         drivetrainChassis.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
         
-        cannonYawMotor = new CANTalon(0);
-        cannonPitchMotor = new CANTalon(1);
+        cannonYawMotor = new Talon(0);
+        cannonPitchMotor = new Talon(1);
         cannonFireLeft = new CANTalon(2);
         cannonFireRight = new CANTalon(3);
         
