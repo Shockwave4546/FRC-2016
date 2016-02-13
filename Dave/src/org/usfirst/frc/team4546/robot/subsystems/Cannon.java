@@ -3,6 +3,7 @@ package org.usfirst.frc.team4546.robot.subsystems;
 import org.usfirst.frc.team4546.robot.Robot;
 import org.usfirst.frc.team4546.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Servo;
@@ -18,6 +19,8 @@ public class Cannon extends Subsystem {
 	CANTalon pitchMotor = RobotMap.cannonPitchMotor;
 	Servo feedBall = RobotMap.cannonFeedServo;
 	DigitalInput limitSwitch = RobotMap.cannonLimitSwitch;
+	AnalogInput pitchEncoder = RobotMap.cannonPitchEncoder;
+	AnalogInput yawEncoder = RobotMap.cannonYawEncoder;
 	
 	public void setPitchMotor(double speed) {
 		pitchMotor.set(speed);
@@ -42,6 +45,25 @@ public class Cannon extends Subsystem {
 	public boolean hasBall()	{
 		
 		return limitSwitch.get();
+	}
+	public double getRawPitch()	{
+		
+		return pitchEncoder.getVoltage();
+	}
+	
+	public double getPitch()	{
+		
+		return 72*pitchEncoder.getVoltage();
+	}
+	
+	public double getRawYaw()	{
+		
+		return yawEncoder.getVoltage();
+	}
+	
+	public double getYaw()	{
+		
+		return 72*yawEncoder.getVoltage();
 	}
 	
 	protected void initDefaultCommand() {
