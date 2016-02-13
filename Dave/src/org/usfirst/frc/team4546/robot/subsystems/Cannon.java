@@ -44,8 +44,7 @@ public class Cannon extends Subsystem {
 	}
 	
 	protected void initDefaultCommand() {
-		//setDefaultCommand(new ControlCannon(Robot.oi.getDriveStick().getX(), 0, false));
-		setDefaultCommand(new TrackTargetX());
+		
 	}
 	
 }

@@ -23,7 +23,6 @@ public class TrackTargetX extends PIDCommand {
 		getPIDController().setAbsoluteTolerance(tolerance);
 		getPIDController().setContinuous(true);
 		
-		requires(Robot.cannon);
 	}
 	
 	protected double returnPIDInput() {
