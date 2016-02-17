@@ -30,6 +30,8 @@ public class Robot extends IterativeRobot {
 	public static Cannon cannon;
 	public static OI oi;
 	
+	public static double speed;
+	
 	//CameraServer camera;
 	public static NetworkTable table;
 	

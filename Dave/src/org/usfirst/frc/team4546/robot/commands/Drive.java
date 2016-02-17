@@ -8,6 +8,9 @@ public class Drive extends Command {
 		
 	//This command handles driving the robot
 	
+	double driveX;
+	double driveZ;
+	
 	public Drive()	{
 		
 		requires(Robot.drivetrain);
@@ -18,7 +21,31 @@ public class Drive extends Command {
 	}
 
 	protected void execute() {
-		Robot.drivetrain.drive(Robot.oi.getDriveStick().getZ(), Robot.oi.getDriveStick().getY(), 1);
+		
+		//Set the speed to the throttle from the driveStick
+    	Robot.speed = ((-Robot.oi.getDriveStick().getThrottle() + 1) / 2);
+    	
+    	//Check X-axis deadzone
+    	if (Robot.oi.getDriveStick().getX() <= .04 && Robot.oi.getDriveStick().getX() >= -.04)	{
+    		
+    		driveX = 0;
+    	}	else	{
+    	
+    		driveX = Robot.oi.getDriveStick().getX();
+    	}
+    	
+    	//Chack Z-axis deadzone
+    	if (Robot.oi.getDriveStick().getZ() <= .01 && Robot.oi.getDriveStick().getZ() >= -.01)	{
+    		
+    		driveZ = 0;
+    	}	else	{
+    		
+    		//Adjust for smaller range of motion on the Z-axis
+    		driveZ = (Robot.oi.getDriveStick().getZ()/2);
+    	}
+    	
+    	//Drive the robot
+    	Robot.drivetrain.drive(driveX, driveZ, Robot.speed);
 	}
 
 	protected boolean isFinished() {

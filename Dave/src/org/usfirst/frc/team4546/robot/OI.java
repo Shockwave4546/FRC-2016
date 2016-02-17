@@ -1,9 +1,10 @@
 package org.usfirst.frc.team4546.robot;
 
+import org.usfirst.frc.team4546.robot.commands.*;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-//import org.usfirst.frc.team4546.robot.commands.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -41,22 +42,26 @@ public class OI {
 	
 	public OI()	{		
 		driveStick = new Joystick(0);		
+		
+		//Joystick buttons
+				//Uncomment any button to open it for binding
+			   	Button trigger = new JoystickButton(driveStick, 1);
+			   	//Button thumbButton = new JoystickButton(driveStick, 2);
+			   	//Button threeButton = new JoystickButton(driveStick, 3);
+			   	//Button fourButton = new JoystickButton(driveStick, 4);
+			   	//Button fiveButton= new JoystickButton(driveStick, 5);
+			   	//Button sixButton = new JoystickButton(driveStick, 6);
+			   	//Button sevenButton = new JoystickButton(driveStick, 7);
+			   	//Button eightButton = new JoystickButton(driveStick, 8);
+			   	//Button nineButton = new JoystickButton(driveStick, 9);
+			   	//Button tenButton = new JoystickButton(driveStick, 10);
+			   	//Button elevenButton = new JoystickButton(driveStick, 11);
+			   	//Button twelveButton = new JoystickButton(driveStick, 12);
+			   	
+			   	trigger.whenPressed(new FireCannon());
 	}
 	
-		//Joystick buttons
-		//Uncomment any button to open it for binding
-	   	Button trigger = new JoystickButton(driveStick, 1);
-	   	//Button thumbButton = new JoystickButton(driveStick, 2);
-	   	//Button threeButton = new JoystickButton(driveStick, 3);
-	   	//Button fourButton = new JoystickButton(driveStick, 4);
-	   	//Button fiveButton= new JoystickButton(driveStick, 5);
-	   	//Button sixButton = new JoystickButton(driveStick, 6);
-	   	//Button sevenButton = new JoystickButton(driveStick, 7);
-	   	//Button eightButton = new JoystickButton(driveStick, 8);
-	   	//Button nineButton = new JoystickButton(driveStick, 9);
-	   	//Button tenButton = new JoystickButton(driveStick, 10);
-	   	//Button elevenButton = new JoystickButton(driveStick, 11);
-	   	//Button twelveButton = new JoystickButton(driveStick, 12);
+		
 	
 	   	//Used to access joystick values
 	   	public Joystick getDriveStick()	{		

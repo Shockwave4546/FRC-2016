@@ -2,6 +2,7 @@ package org.usfirst.frc.team4546.robot.commands;
 
 import org.usfirst.frc.team4546.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class FireCannon extends Command {
@@ -15,14 +16,17 @@ public class FireCannon extends Command {
 
 	
 	protected void execute() {
-		Robot.cannon.setFireLeft(1);
-		Robot.cannon.setFireRight(1);
+		
 	
 	}
 
 	
 	protected void initialize() {
-		Robot.cannon.setFeedServo(75);		
+		Robot.cannon.setFireLeft(1);
+		Robot.cannon.setFireRight(1);
+		Timer.delay(.1);
+		Robot.cannon.setFeedServo(75);
+		Timer.delay(1);
 
 	}
 

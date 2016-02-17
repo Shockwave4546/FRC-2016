@@ -79,6 +79,7 @@ public class Cannon extends Subsystem {
 	
 	protected void initDefaultCommand() {
 		
+		setDefaultCommand(new ControlCannon(Robot.oi.getDriveStick().getX(), Robot.oi.getDriveStick().getZ()));
 	}
 	
 }
