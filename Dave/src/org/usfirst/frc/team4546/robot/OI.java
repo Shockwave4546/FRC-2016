@@ -39,13 +39,15 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
 	
 	Joystick driveStick;
+	Joystick gunnerStick;
 	
 	public OI()	{		
 		driveStick = new Joystick(0);		
+		gunnerStick = new Joystick(1);
 		
 		//Joystick buttons
 				//Uncomment any button to open it for binding
-			   	Button trigger = new JoystickButton(driveStick, 1);
+			   	//Button trigger = new JoystickButton(driveStick, 1);
 			   	//Button thumbButton = new JoystickButton(driveStick, 2);
 			   	//Button threeButton = new JoystickButton(driveStick, 3);
 			   	//Button fourButton = new JoystickButton(driveStick, 4);
@@ -58,14 +60,35 @@ public class OI {
 			   	//Button elevenButton = new JoystickButton(driveStick, 11);
 			   	//Button twelveButton = new JoystickButton(driveStick, 12);
 			   	
+			   	
+			  //Uncomment any button to open it for binding
+			   	Button trigger = new JoystickButton(gunnerStick, 1);
+			   	//Button thumbButton = new JoystickButton(gunnerStick, 2);
+			   	//Button threeButton = new JoystickButton(gunnerStick, 3);
+			   	//Button fourButton = new JoystickButton(gunnerStick, 4);
+			   	//Button fiveButton= new JoystickButton(gunnerStick, 5);
+			   	//Button sixButton = new JoystickButton(gunnerStick, 6);
+			   	//Button sevenButton = new JoystickButton(gunnerStick, 7);
+			   	//Button eightButton = new JoystickButton(gunnerStick, 8);
+			   	//Button nineButton = new JoystickButton(gunnerStick, 9);
+			   	//Button tenButton = new JoystickButton(gunnerStick, 10);
+			   	//Button elevenButton = new JoystickButton(gunnerStick, 11);
+			   	//Button twelveButton = new JoystickButton(gunnerStick, 12);
+			   	
 			   	trigger.whenPressed(new FireCannon());
 	}
 	
 		
 	
 	   	//Used to access joystick values
-	   	public Joystick getDriveStick()	{		
-		return driveStick;
+	public Joystick getDriveStick()	{		
+		
+	   	return driveStick;
+	}
+	
+	public Joystick getGunnerStick()	{
+		
+		return gunnerStick;
 	}
 }
 
