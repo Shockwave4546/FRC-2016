@@ -79,8 +79,8 @@ public class OI {
 			   	POVButton gunnerStickUp = new POVButton(gunnerStick, 0, 0);
 			   	POVButton gunnerStickDown = new POVButton(gunnerStick, 0, 180);
 			   	
-			   	gunnerStickUp.whileActive(new MoveIntake(1));
-			   	gunnerStickDown.whileActive(new MoveIntake(-1));
+			   	gunnerStickUp.whileActive(new MoveIntake(.25));
+			   	gunnerStickDown.whileActive(new MoveIntake(-.25));
 			   	
 			   	trigger.whenPressed(new FireCannon());
 	}
