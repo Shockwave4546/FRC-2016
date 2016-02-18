@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team4546.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -32,7 +33,7 @@ public class Robot extends IterativeRobot {
 	
 	public static double speed;
 	
-	//CameraServer camera;
+	CameraServer camera;
 	public static NetworkTable table;
 	
     Command autonomousCommand;
@@ -50,9 +51,9 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         chooser = new SendableChooser();
         
-        //camera = CameraServer.getInstance();
-        //camera.setQuality(50);
-        //camera.startAutomaticCapture("cam0");
+        camera = CameraServer.getInstance();
+        camera.setQuality(50);
+        camera.startAutomaticCapture("cam0");
         
         
         //SmartDashboard.putData("Auto mode", chooser);

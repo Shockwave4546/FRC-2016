@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4546.robot;
 
 import org.usfirst.frc.team4546.robot.commands.*;
+import org.usfirst.frc.team4546.robot.triggers.POVButton;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -74,6 +75,12 @@ public class OI {
 			   	//Button tenButton = new JoystickButton(gunnerStick, 10);
 			   	//Button elevenButton = new JoystickButton(gunnerStick, 11);
 			   	//Button twelveButton = new JoystickButton(gunnerStick, 12);
+			   	
+			   	POVButton gunnerStickUp = new POVButton(gunnerStick, 0, 0);
+			   	POVButton gunnerStickDown = new POVButton(gunnerStick, 0, 180);
+			   	
+			   	gunnerStickUp.whileActive(new MoveIntake(1));
+			   	gunnerStickDown.whileActive(new MoveIntake(-1));
 			   	
 			   	trigger.whenPressed(new FireCannon());
 	}
