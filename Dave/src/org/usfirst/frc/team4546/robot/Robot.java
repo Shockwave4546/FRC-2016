@@ -114,6 +114,9 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putBoolean("Has Ball?", cannon.hasBall());
     	SmartDashboard.putData(cannon);
     	SmartDashboard.putData(drivetrain);
+    	
+    	SmartDashboard.putNumber("Cannon pitch voltage", cannon.getRawPitch());
+    	SmartDashboard.putNumber("Cannon pitch value", cannon.getPitchValue());
         
     }
     

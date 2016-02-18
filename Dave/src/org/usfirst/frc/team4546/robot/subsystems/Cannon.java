@@ -65,6 +65,11 @@ public class Cannon extends Subsystem {
 		return 72*pitchEncoder.getVoltage();
 	}
 	
+	public double getPitchValue()	{
+		
+		return pitchEncoder.getValue();
+	}
+	
 	//Raw encoder voltage for debug
 	public double getRawYaw()	{
 		
