@@ -19,7 +19,7 @@ public class YawCannon extends Command {
 	}
 
 	protected void execute() {
-		Robot.cannon.setYawMotor(speed);
+		Robot.cannon.setYawMotor(Robot.oi.getGunnerStick().getX());
 	}
 
 	protected void initialize() {
