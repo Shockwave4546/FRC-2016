@@ -32,6 +32,11 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	
 	public static double speed;
+	public static double cannonSpeed;
+	public static final double upperLimit = 0;
+	public static final double lowerLimit = 0;
+	public static final double leftLimit= 0;
+	public static final double rightLimit = 0;
 	
 	CameraServer camera;
 	public static NetworkTable table;
@@ -107,8 +112,8 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         
         //Send necessary values to dashboard
-    	SmartDashboard.putNumber("Target X Location", table.getNumber("midpointX", 0.0));
-    	SmartDashboard.putNumber("Target Y Location", table.getNumber("midpointY", 0.0));
+        SmartDashboard.putNumber("Robot Speed", speed*100);
+        SmartDashboard.putNumber("Cannon Speed", cannonSpeed*100);
     	SmartDashboard.putNumber("Gyro Angle", drivetrain.getAngle());
     	SmartDashboard.putNumber("Cannon Yaw", cannon.getYaw());
     	SmartDashboard.putNumber("Cannon Pitch", cannon.getPitch());
