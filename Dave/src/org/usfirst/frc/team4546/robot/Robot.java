@@ -131,8 +131,8 @@ public class Robot extends IterativeRobot {
         
         //Draw crosshairs on camera image
         NIVision.IMAQdxGrab(session, frame, 1);
-        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical, minVertical, 0.0f);
         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal, minHorizontal, 0.0f);
+        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical, minVertical, 0.0f);
         CameraServer.getInstance().setImage(frame);
         
         //Set the speed to the throttle from the driveStick
