@@ -17,7 +17,7 @@ Check fuses on the PDP
 
 -PDP gives an unclearable sticky fault 
 
-Check CAN bus order: TODO get proper order from Will
+Check CAN bus order: RIO-SRX 2-SRX 3-PCM-SRX 1-SRX 0-PDP
 
 -Bridge connection is active, but no robot communication
 

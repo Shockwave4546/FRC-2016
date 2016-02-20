@@ -48,7 +48,13 @@ public class Drivetrain extends Subsystem {
 		drivetrainAHRS.reset();
 	}		
 
+	//Front-back displacement
 	public double getDisplacementX()	{
 		return drivetrainAHRS.getDisplacementX();
+	}
+	
+	//Left-Right Displacement
+	public double getDisplacementY()	{
+		return drivetrainAHRS.getDisplacementY();
 	}
 }        
