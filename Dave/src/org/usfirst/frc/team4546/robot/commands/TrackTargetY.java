@@ -27,7 +27,7 @@ public class TrackTargetY extends PIDCommand {
 	
 	protected double returnPIDInput() {
 		
-		return 100 - Robot.table.getNumber("midpointY", 100);
+		return 0;//100 - Robot.table.getNumber("midpointY", 100);
 	}
 
 	
@@ -63,7 +63,7 @@ public class TrackTargetY extends PIDCommand {
 	
 	protected boolean isFinished() {
 		
-		return Robot.table.getNumber("midpointY", 100) > 85 && Robot.table.getNumber("midpointY", 100) < 115;
+		return false;//Robot.table.getNumber("midpointY", 100) > 85 && Robot.table.getNumber("midpointY", 100) < 115;
 	}
 
 }

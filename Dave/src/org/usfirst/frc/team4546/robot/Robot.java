@@ -12,6 +12,10 @@ import org.usfirst.frc.team4546.robot.subsystems.Cannon;
 //import org.usfirst.frc.team4546.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4546.robot.subsystems.Drivetrain;
 
+import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.DrawMode;
+import com.ni.vision.NIVision.Image;
+
 //import org.usfirst.frc.team4546.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -33,16 +37,23 @@ public class Robot extends IterativeRobot {
 	
 	public static double speed;
 	public static double cannonSpeed;
+	int session;
 	public static final double upperLimit = 0;
 	public static final double lowerLimit = 0;
 	public static final double leftLimit= 0;
 	public static final double rightLimit = 0;
 	
-	CameraServer camera;
-	public static NetworkTable table;
+	final NIVision.Point maxVertical = new NIVision.Point(320, 480);
+    final NIVision.Point minVertical = new NIVision.Point(320, 0);
+    final NIVision.Point maxHorizontal = new NIVision.Point(640, 240);
+    final NIVision.Point minHorizontal = new NIVision.Point(0, 240);
+	
+	//CameraServer camera;
+	//public static NetworkTable table;
 	
     Command autonomousCommand;
     SendableChooser chooser;
+    Image frame;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -56,14 +67,20 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         chooser = new SendableChooser();
         
-        camera = CameraServer.getInstance();
-        camera.setQuality(50);
-        camera.startAutomaticCapture("cam0");
+        //camera = CameraServer.getInstance();
+        //camera.setQuality(50);
+        //camera.startAutomaticCapture("cam1");
         
         
         //SmartDashboard.putData("Auto mode", chooser);
-        table = NetworkTable.getTable("Camera");
+        //table = NetworkTable.getTable("Camera");
         cannon.setFeedServo(70);
+        frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
+
+        // the camera name (ex "cam0") can be found through the roborio web interface
+        session = NIVision.IMAQdxOpenCamera("cam0",
+                NIVision.IMAQdxCameraControlMode.CameraControlModeController);
+        		NIVision.IMAQdxConfigureGrab(session);
         
     }
 	
@@ -102,6 +119,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
     }
 
     /**
@@ -111,7 +129,13 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-		//Set the speed to the throttle from the driveStick
+        //Draw crosshairs on camera image
+        NIVision.IMAQdxGrab(session, frame, 1);
+        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical, minVertical, 0.0f);
+        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal, minHorizontal, 0.0f);
+        CameraServer.getInstance().setImage(frame);
+        
+        //Set the speed to the throttle from the driveStick
     	speed = ((-oi.getDriveStick().getThrottle() + 1) / 2);
     	cannonSpeed = ((-oi.getGunnerStick().getThrottle() + 1) / 2);
         

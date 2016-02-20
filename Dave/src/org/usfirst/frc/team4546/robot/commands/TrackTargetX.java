@@ -28,7 +28,7 @@ public class TrackTargetX extends PIDCommand {
 	}
 	
 	protected double returnPIDInput() {
-		return 960 - Robot.table.getNumber("midpointX", 960);
+		return 0;//960 - Robot.table.getNumber("midpointX", 960);
 	}
 
 	protected void usePIDOutput(double output) {
@@ -47,7 +47,7 @@ public class TrackTargetX extends PIDCommand {
 	}
 
 	protected boolean isFinished() {
-		return Robot.table.getNumber("midpointX", 960) > 945 && Robot.table.getNumber("midpointX", 960) < 975;
+		return false;//Robot.table.getNumber("midpointX", 960) > 945 && Robot.table.getNumber("midpointX", 960) < 975;
 	}
 
 	protected void end() {
