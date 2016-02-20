@@ -23,20 +23,20 @@ public class Cannon extends Subsystem {
 	AnalogInput yawEncoder = RobotMap.cannonYawEncoder;
 	
 	//Set speed of pitch motor
-	public void setPitchMotor(double speed) {
+	public void setPitchMotor(double move, double speed) {
 		
 		if(!(Robot.lowerLimit <= Robot.cannon.getPitch() && Robot.upperLimit >= Robot.cannon.getPitch()))	{
 
-			pitchMotor.set(speed);
+			pitchMotor.set(move*speed);
 		}
 	}
 	
 	//Set speed of yaw motor
-	public void setYawMotor(double speed) {
+	public void setYawMotor(double move, double speed) {
 
 		if(!(Robot.leftLimit <= Robot.cannon.getPitch() && Robot.rightLimit >= Robot.cannon.getPitch()))	{
 
-			yawMotor.set(speed);
+			yawMotor.set(move*speed);
 		}
 	}
 	

@@ -111,6 +111,10 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
+		//Set the speed to the throttle from the driveStick
+    	speed = ((-oi.getDriveStick().getThrottle() + 1) / 2);
+    	cannonSpeed = ((-oi.getGunnerStick().getThrottle() + 1) / 2);
+        
         //Send necessary values to dashboard
         SmartDashboard.putNumber("Robot Speed", speed*100);
         SmartDashboard.putNumber("Cannon Speed", cannonSpeed*100);

@@ -44,7 +44,7 @@ public class TrackTargetY extends PIDCommand {
 
 	
 	protected void execute() {
-		Robot.cannon.setPitchMotor(turnRate);
+		Robot.cannon.setPitchMotor(turnRate, 1);
 
 	}
 

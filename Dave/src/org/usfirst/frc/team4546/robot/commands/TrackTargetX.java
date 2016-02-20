@@ -43,7 +43,7 @@ public class TrackTargetX extends PIDCommand {
 
 	protected void execute() {
 	
-		Robot.cannon.setYawMotor(turnRate);
+		Robot.cannon.setYawMotor(turnRate, 1);
 	}
 
 	protected boolean isFinished() {
