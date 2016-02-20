@@ -29,11 +29,15 @@ public class MoveIntake extends Command {
 	}
 
 	protected void end() {
-
+		
+		Robot.cannon.setFireLeft(0);
+		Robot.cannon.setFireRight(0);
 	}
 
 	protected void interrupted() {
 
+		Robot.cannon.setFireLeft(0);
+		Robot.cannon.setFireRight(0);
 	}
 
 }

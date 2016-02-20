@@ -20,7 +20,7 @@ public class PitchCannon extends Command {
 	}
 
 	protected void execute() {
-		Robot.cannon.setPitchMotor(Robot.oi.getGunnerStick().getY());
+		Robot.cannon.setPitchMotor(-Robot.oi.getGunnerStick().getY());
 	}
 
 	protected void initialize() {

@@ -9,8 +9,12 @@ public class FireCannon extends Command {
 	
 	//This command handles firing the cannon
 	
+	boolean finished = false;
+	
 	protected void end() {
-		Robot.cannon.setFeedServo(0.0);
+		Robot.cannon.setFeedServo(70);
+		Robot.cannon.setFireLeft(0);
+		Robot.cannon.setFireRight(0);
 
 	}
 
@@ -22,24 +26,26 @@ public class FireCannon extends Command {
 
 	
 	protected void initialize() {
-		Robot.cannon.setFireLeft(1);
-		Robot.cannon.setFireRight(1);
-		Timer.delay(.1);
-		Robot.cannon.setFeedServo(75);
+		Robot.cannon.setFireLeft(-1);
+		Robot.cannon.setFireRight(-1);
+		Timer.delay(.25);
+		Robot.cannon.setFeedServo(150);
 		Timer.delay(1);
+		finished = true;
 
 	}
 
 	
 	protected void interrupted() {
 		
-
+		Robot.cannon.setFireLeft(0);
+		Robot.cannon.setFireRight(0);
 	}
 
 	
 	protected boolean isFinished() {
 		
-		return false;
+		return finished;
 	}
 
 }

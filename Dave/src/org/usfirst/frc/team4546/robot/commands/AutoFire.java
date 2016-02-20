@@ -29,7 +29,7 @@ public class AutoFire extends CommandGroup {
 				addSequential(new FireCannon(), 1);				
 			}
 		} else {
-			addParallel(new ControlCannon(Robot.oi.getDriveStick().getX(), Robot.oi.getDriveStick().getY()));
+			//addParallel(new ControlCannon(Robot.oi.getDriveStick().getX(), Robot.oi.getDriveStick().getY()));
 		}
 		
 	}

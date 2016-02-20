@@ -58,6 +58,7 @@ public class Robot extends IterativeRobot {
         
         //SmartDashboard.putData("Auto mode", chooser);
         table = NetworkTable.getTable("Camera");
+        cannon.setFeedServo(70);
         
     }
 	

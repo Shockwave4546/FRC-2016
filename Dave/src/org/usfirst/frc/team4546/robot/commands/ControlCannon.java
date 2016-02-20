@@ -9,8 +9,8 @@ public class ControlCannon extends CommandGroup {
 	//This command group handles operator control of the cannon
 	
 	public ControlCannon() {
-		addParallel(new YawCannon());
-		addParallel(new PitchCannon());
+		addParallel(new YawCannon(1));
+		addParallel(new PitchCannon(1));
 		requires(Robot.cannon);
 		
 	}

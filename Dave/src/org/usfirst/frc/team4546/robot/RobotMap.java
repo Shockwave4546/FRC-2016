@@ -67,11 +67,11 @@ public class RobotMap {
         
         drivetrainChassis.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
         
-        cannonYawMotor = new CANTalon(0);
+        cannonYawMotor = new CANTalon(1);
         LiveWindow.addActuator("Cannon", "Yaw Motor", (CANTalon) cannonYawMotor);
         
         //Cannon objects
-        cannonPitchMotor = new CANTalon(1);
+        cannonPitchMotor = new CANTalon(0);
         LiveWindow.addActuator("Cannon", "Pitch Motor", (CANTalon) cannonPitchMotor);
         
         cannonFireLeft = new CANTalon(2);
@@ -79,6 +79,7 @@ public class RobotMap {
         
         cannonFireRight = new CANTalon(3);
         LiveWindow.addActuator("Cannon", "Right Firing Motor", (CANTalon) cannonFireRight);
+        cannonFireRight.setInverted(true);
         
         cannonFeedServo = new Servo(2);
         LiveWindow.addActuator("Cannon", "Feed Servo", (Servo) cannonFeedServo);
