@@ -30,7 +30,12 @@ public class Drivetrain extends Subsystem {
 	
 	//Get the yaw of the drivetrain itself
 	public double getAngle() {
-		return drivetrainAHRS.getAngle();
+		
+		if(drivetrainAHRS.getAngle() <= 90)	{
+			return 90 - drivetrainAHRS.getAngle();
+		}	else	{
+			return drivetrainAHRS.getAngle() - 90;
+		}
 	}
 
 	//Zero the yaw value of the gyro
@@ -43,4 +48,7 @@ public class Drivetrain extends Subsystem {
 		drivetrainAHRS.reset();
 	}		
 
+	public double getDisplacementX()	{
+		return drivetrainAHRS.getDisplacementX();
+	}
 }        

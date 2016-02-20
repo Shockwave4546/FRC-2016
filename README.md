@@ -3,6 +3,9 @@ Code for Shockwave's 2016 robot, Chuck "the harbor freight express."
 
 This year's robot (hopefully) features automated tracking of the goal as well as automated angle calculation and firing
 
+# A Note About Orientation
+The robot's gyro is located on a 90 degree offset that must be compensated for. The getAngle() method from the drivetrain is already offset, but when getting displacement the X axis must be used instead of the Y, and vice-versa.
+
 # Common Problems
 -Robot grabs null pointers (java.lang.nullPointerException error)
 
@@ -16,7 +19,7 @@ Check fuses on the PDP
 
 Check CAN bus order: TODO get proper order from Will
 
--Bridge conection is active, but no robot communication
+-Bridge connection is active, but no robot communication
 
 Ensure that the radio is connected properly and fully booted, then press the reset button on the roborio to reboot it. DO NOT reboot the robot using the breaker, as this is caused by the roborio booting too quickly for it to recognize the radio.
 
