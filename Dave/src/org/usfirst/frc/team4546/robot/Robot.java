@@ -48,7 +48,7 @@ public class Robot extends IterativeRobot {
     final NIVision.Point maxHorizontal = new NIVision.Point(640, 240);
     final NIVision.Point minHorizontal = new NIVision.Point(0, 240);
 	
-	//CameraServer camera;
+	CameraServer camera;
 	//public static NetworkTable table;
 	
     Command autonomousCommand;
@@ -67,9 +67,9 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         chooser = new SendableChooser();
         
-        //camera = CameraServer.getInstance();
-        //camera.setQuality(50);
-        //camera.startAutomaticCapture("cam1");
+        camera = CameraServer.getInstance();
+        camera.setQuality(50);
+        camera.startAutomaticCapture("cam1");
         
         
         //SmartDashboard.putData("Auto mode", chooser);
