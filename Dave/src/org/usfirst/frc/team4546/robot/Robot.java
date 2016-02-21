@@ -67,9 +67,9 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         chooser = new SendableChooser();
         
-        camera = CameraServer.getInstance();
-        camera.setQuality(50);
-        camera.startAutomaticCapture("cam1");
+        //camera = CameraServer.getInstance();
+        //camera.setQuality(50);
+        //camera.startAutomaticCapture("cam1");
         
         
         //SmartDashboard.putData("Auto mode", chooser);
