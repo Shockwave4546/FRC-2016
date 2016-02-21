@@ -5,12 +5,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class HomeCannon extends CommandGroup {
 	
 	double homePitch;
-	double homeYaw;
 	
 	public HomeCannon()	{
 		
 		addSequential(new AutoPitchCannon(1, homePitch));
-		addSequential(new AutoYawCannon(1, homeYaw));
+		addSequential(new AutoYawCannon(1, 180));
 		
 	}
 
