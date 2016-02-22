@@ -25,15 +25,22 @@ public class AutoPitchCannon extends Command {
 	}
 
 	protected boolean isFinished() {
-		return Robot.cannon.getPitch() == angle;
+		
+		if(speed < 0)	{
+			return Robot.cannon.getPitch() >= angle;
+		}	else	{
+			return Robot.cannon.getPitch() <= angle;
+		}
 	}
 
 	protected void end() {
 
+		Robot.cannon.setPitchMotor(0, 0);
 	}
 
 	protected void interrupted() {
-
+		
+		Robot.cannon.setPitchMotor(0, 0);
 	}
 
 }

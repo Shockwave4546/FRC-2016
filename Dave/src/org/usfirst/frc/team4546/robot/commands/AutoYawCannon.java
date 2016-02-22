@@ -25,15 +25,23 @@ public class AutoYawCannon extends Command {
 	}
 	
 	protected boolean isFinished() {
-		return Robot.cannon.getYaw() == angle;
+		
+		if(speed < 0)	{
+			return Robot.cannon.getYaw() >= angle;
+		}	else	{
+			return Robot.cannon.getYaw() <= angle;
+		}
+		
 	}
 
 	protected void end() {
-
+		
+		Robot.cannon.setYawMotor(0, 0);
 	}
 
 	protected void interrupted() {
 
+		Robot.cannon.setYawMotor(0, 0);
 	}
 
 }
