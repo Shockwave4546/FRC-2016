@@ -87,10 +87,10 @@ public class RobotMap {
         cannonLimitSwitch = new DigitalInput(0);
         LiveWindow.addSensor("Cannon", "Limit Switch", (DigitalInput) cannonLimitSwitch);
         
-        cannonPitchEncoder = new AnalogInput(0);
+        cannonPitchEncoder = new AnalogInput(1);
         LiveWindow.addSensor("Cannon", "Pitch Encoder", (AnalogInput) cannonPitchEncoder);
         
-        cannonYawEncoder = new AnalogInput(1);
+        cannonYawEncoder = new AnalogInput(0);
         LiveWindow.addSensor("Cannon", "Yaw Encoder", (AnalogInput) cannonYawEncoder);
         
 	}
