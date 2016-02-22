@@ -16,7 +16,7 @@ public class PitchCannon extends Command {
 		
 	protected void end() {
 
-
+		Robot.cannon.setPitchMotor(0, 0);
 	}
 
 	protected void execute() {
@@ -36,6 +36,7 @@ public class PitchCannon extends Command {
 
 	protected void interrupted() {
 
+		Robot.cannon.setPitchMotor(0, 0);
 	}
 
 	protected boolean isFinished() {

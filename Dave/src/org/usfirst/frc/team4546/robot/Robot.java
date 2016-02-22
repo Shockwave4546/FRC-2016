@@ -152,6 +152,9 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putBoolean("Has Ball?", cannon.hasBall());
     	SmartDashboard.putData(cannon);
     	SmartDashboard.putData(drivetrain);
+    	
+    	SmartDashboard.putNumber("Gunner Z", oi.getGunnerStick().getZ());
+    	SmartDashboard.putNumber("Gunner Y", oi.getGunnerStick().getZ());
         
     }
     

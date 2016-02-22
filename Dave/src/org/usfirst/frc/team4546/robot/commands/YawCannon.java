@@ -15,6 +15,7 @@ public class YawCannon extends Command {
 
 	protected void end() {
 
+		Robot.cannon.setYawMotor(0, 0);
 	}
 
 	protected void execute() {
@@ -33,7 +34,8 @@ public class YawCannon extends Command {
 	}
 
 	protected void interrupted() {
-
+		
+		Robot.cannon.setYawMotor(0, 0);
 	}
 
 	protected boolean isFinished() {
