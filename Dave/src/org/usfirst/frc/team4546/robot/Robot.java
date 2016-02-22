@@ -44,7 +44,7 @@ public class Robot extends IterativeRobot {
 	
 	final NIVision.Point maxVertical = new NIVision.Point(320, 480);
     final NIVision.Point minVertical = new NIVision.Point(320, 0);
-    final NIVision.Point maxHorizontal = new NIVision.Point(3500, 0);
+    final NIVision.Point maxHorizontal = new NIVision.Point(350, 0);
     final NIVision.Point minHorizontal = new NIVision.Point(350, 480);
 	
 	CameraServer camera;
