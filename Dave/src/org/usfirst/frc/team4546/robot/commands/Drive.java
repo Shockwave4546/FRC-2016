@@ -39,7 +39,7 @@ public class Drive extends Command {
     	}	else	{
     		
     		//Adjust for smaller range of motion on the Z-axis
-    		driveZ = (Robot.oi.getDriveStick().getZ()/1.5);
+    		driveZ = (Robot.oi.getDriveStick().getZ()/1.25);
     	}
     	
     	//Drive the robot
