@@ -40,6 +40,7 @@ public class PitchCannon extends Command {
 	}
 
 	protected boolean isFinished() {
+		//TODO cahnge to &&
 		return !(Robot.upperLimit >= Robot.cannon.getPitch() || Robot.lowerLimit <= Robot.cannon.getPitch());
 	}
 
