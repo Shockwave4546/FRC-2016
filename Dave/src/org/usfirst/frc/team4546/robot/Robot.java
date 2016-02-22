@@ -6,11 +6,9 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
-import org.usfirst.frc.team4546.robot.subsystems.Cannon;
-//import org.usfirst.frc.team4546.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4546.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team4546.robot.subsystems.*;
+import org.usfirst.frc.team4546.robot.commands.*;
 
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.DrawMode;
@@ -67,19 +65,23 @@ public class Robot extends IterativeRobot {
     	drivetrain = new Drivetrain();
     	cannon = new Cannon();
 		oi = new OI();
-        chooser = new SendableChooser();
         
         //camera = CameraServer.getInstance();
         //camera.setQuality(50);
         //camera.startAutomaticCapture("cam1");
         
+        chooser = new SendableChooser();
+        chooser.addDefault("No Auto", null);
+        chooser.addObject("Spy Auto", new SpyAuto());
+        chooser.addObject("Position 2", new StartFromPosition(StartFromPosition.Position.TWO));
+        chooser.addObject("Position 3", new StartFromPosition(StartFromPosition.Position.THREE));
+        chooser.addObject("Position 4", new StartFromPosition(StartFromPosition.Position.FOUR));
+        chooser.addObject("Position 5", new StartFromPosition(StartFromPosition.Position.FIVE));
+        SmartDashboard.putData("Auto mode", chooser);
         
-        //SmartDashboard.putData("Auto mode", chooser);
-        //table = NetworkTable.getTable("Camera");
         cannon.setFeedServo(70);
+        
         frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-
-        // the camera name (ex "cam0") can be found through the roborio web interface
         session = NIVision.IMAQdxOpenCamera("cam0",
                 NIVision.IMAQdxCameraControlMode.CameraControlModeController);
         		NIVision.IMAQdxConfigureGrab(session);
