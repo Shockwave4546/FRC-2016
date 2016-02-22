@@ -42,14 +42,14 @@ public class Robot extends IterativeRobot {
 	public static final double leftLimit= 240;
 	public static final double rightLimit = 180;
 	
-	final NIVision.Point maxVertical = new NIVision.Point(320, 115);
+	final NIVision.Point maxVertical = new NIVision.Point(320, 235);
     final NIVision.Point minVertical = new NIVision.Point(320, 0);
-	final NIVision.Point maxVertical2 = new NIVision.Point(320, 125);
+	final NIVision.Point maxVertical2 = new NIVision.Point(320, 245);
     final NIVision.Point minVertical2 = new NIVision.Point(320, 480);
-    final NIVision.Point maxHorizontal = new NIVision.Point(325, 125);
-    final NIVision.Point minHorizontal = new NIVision.Point(325, 115);
-    final NIVision.Point maxHorizontal2 = new NIVision.Point(315, 125);
-    final NIVision.Point minHorizontal2 = new NIVision.Point(315, 115);
+    final NIVision.Point maxHorizontal = new NIVision.Point(325, 235);
+    final NIVision.Point minHorizontal = new NIVision.Point(325, 245);
+    final NIVision.Point maxHorizontal2 = new NIVision.Point(315, 235);
+    final NIVision.Point minHorizontal2 = new NIVision.Point(315, 245);
 	CameraServer camera;
 	//public static NetworkTable table;
 	
