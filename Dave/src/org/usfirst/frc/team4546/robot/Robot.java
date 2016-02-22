@@ -154,7 +154,7 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putData(drivetrain);
     	
     	SmartDashboard.putNumber("Gunner Z", oi.getGunnerStick().getZ());
-    	SmartDashboard.putNumber("Gunner Y", oi.getGunnerStick().getZ());
+    	SmartDashboard.putNumber("Gunner Y", oi.getGunnerStick().getY());
         
     }
     
