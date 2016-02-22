@@ -28,7 +28,7 @@ public class FireCannon extends Command {
 	protected void initialize() {
 		Robot.cannon.setFireLeft(-1);
 		Robot.cannon.setFireRight(-1);
-		Timer.delay(.25);
+		Timer.delay(.5);
 		Robot.cannon.setFeedServo(150);
 		Timer.delay(1);
 		finished = true;
