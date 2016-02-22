@@ -44,8 +44,8 @@ public class Robot extends IterativeRobot {
 	
 	final NIVision.Point maxVertical = new NIVision.Point(320, 480);
     final NIVision.Point minVertical = new NIVision.Point(320, 0);
-    final NIVision.Point maxHorizontal = new NIVision.Point(640, 240);
-    final NIVision.Point minHorizontal = new NIVision.Point(0, 240);
+    final NIVision.Point maxHorizontal = new NIVision.Point(3500, 0);
+    final NIVision.Point minHorizontal = new NIVision.Point(350, 480);
 	
 	CameraServer camera;
 	//public static NetworkTable table;
@@ -130,7 +130,7 @@ public class Robot extends IterativeRobot {
         
         //Draw crosshairs on camera image
         NIVision.IMAQdxGrab(session, frame, 1);
-        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, minHorizontal, maxHorizontal, 0.0f);
+        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal, minHorizontal, 0.0f);
         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical, minVertical, 0.0f);
         CameraServer.getInstance().setImage(frame);
         
