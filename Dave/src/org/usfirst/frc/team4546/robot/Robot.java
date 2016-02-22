@@ -37,9 +37,9 @@ public class Robot extends IterativeRobot {
 	public static double speed;
 	public static double cannonSpeed;
 	int session;
-	public static final double upperLimit = 0;
-	public static final double lowerLimit = 0;
-	public static final double leftLimit= 240;
+	public static final double upperLimit = 39;
+	public static final double lowerLimit = -57;
+	public static final double leftLimit = -130;
 	public static final double rightLimit = 180;
 	
 	final NIVision.Point maxVertical = new NIVision.Point(320, 235);

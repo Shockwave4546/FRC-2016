@@ -71,7 +71,12 @@ public class Cannon extends Subsystem {
 	//Pitch of cannon
 	public double getPitch()	{
 		
-		return 72*pitchEncoder.getVoltage();
+		if(pitchEncoder.getVoltage() <= 2.5)	{
+			return -(72*pitchEncoder.getVoltage() - 360);
+		}	else	{
+			return 72*pitchEncoder.getVoltage() - 360;
+		}
+		
 	}
 	
 	//Raw encoder voltage for debug
@@ -83,7 +88,11 @@ public class Cannon extends Subsystem {
 	//Yaw of cannon
 	public double getYaw()	{
 		
-		return 72*yawEncoder.getVoltage();
+		if(yawEncoder.getVoltage() <= 2.5)	{
+			return 72*yawEncoder.getVoltage();
+		}	else	{
+			return 72*yawEncoder.getVoltage() - 360;
+		}
 	}
 	
 	protected void initDefaultCommand() {

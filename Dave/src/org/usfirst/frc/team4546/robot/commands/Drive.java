@@ -55,7 +55,7 @@ public class Drive extends Command {
     	}
     	
     	//Drive the robot
-    	Robot.drivetrain.drive(driveY, driveZ, Robot.speed);
+    	Robot.drivetrain.drive(driveZ, driveY, Robot.speed);
 	}
 
 	protected boolean isFinished() {

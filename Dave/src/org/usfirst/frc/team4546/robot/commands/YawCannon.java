@@ -37,7 +37,7 @@ public class YawCannon extends Command {
 	}
 
 	protected boolean isFinished() {
-		return Robot.lowerLimit <= Robot.cannon.getYaw() && Robot.upperLimit >= Robot.cannon.getYaw();
+		return !(Robot.leftLimit <= Robot.cannon.getYaw() || Robot.rightLimit >= Robot.cannon.getYaw());
 	}
 
 }
