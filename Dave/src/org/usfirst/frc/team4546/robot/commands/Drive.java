@@ -43,7 +43,7 @@ public class Drive extends Command {
     	}
     	
     	//Drive the robot
-    	Robot.drivetrain.drive(driveZ, driveY, Robot.speed);
+    	Robot.drivetrain.drive(Math.pow(driveZ, 2), Math.pow(driveY, 2), Robot.speed);
 	}
 
 	protected boolean isFinished() {

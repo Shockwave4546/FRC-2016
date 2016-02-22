@@ -22,7 +22,7 @@ public class PitchCannon extends Command {
 	protected void execute() {
 		
 		
-		Robot.cannon.setPitchMotor(-Robot.oi.getGunnerStick().getY(), Robot.cannonSpeed);
+		Robot.cannon.setPitchMotor(-Math.pow(Robot.oi.getGunnerStick().getY(), 2), Robot.cannonSpeed);
 	}
 
 	protected void initialize() {
