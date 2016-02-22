@@ -42,11 +42,14 @@ public class Robot extends IterativeRobot {
 	public static final double leftLimit= 240;
 	public static final double rightLimit = 180;
 	
-	final NIVision.Point maxVertical = new NIVision.Point(320, 480);
+	final NIVision.Point maxVertical = new NIVision.Point(320, 235);
     final NIVision.Point minVertical = new NIVision.Point(320, 0);
-    final NIVision.Point maxHorizontal = new NIVision.Point(350, 0);
-    final NIVision.Point minHorizontal = new NIVision.Point(350, 480);
-	
+	final NIVision.Point maxVertical2 = new NIVision.Point(320, 245);
+    final NIVision.Point minVertical2 = new NIVision.Point(320, 480);
+    final NIVision.Point maxHorizontal = new NIVision.Point(315, 240);
+    final NIVision.Point minHorizontal = new NIVision.Point(0, 240);
+    final NIVision.Point maxHorizontal2 = new NIVision.Point(325, 240);
+    final NIVision.Point minHorizontal2 = new NIVision.Point(640, 240);
 	CameraServer camera;
 	//public static NetworkTable table;
 	
@@ -132,6 +135,8 @@ public class Robot extends IterativeRobot {
         NIVision.IMAQdxGrab(session, frame, 1);
         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal, minHorizontal, 0.0f);
         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical, minVertical, 0.0f);
+        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal2, minHorizontal2, 0.0f);
+        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical2, minVertical2, 0.0f);
         CameraServer.getInstance().setImage(frame);
         
         //Set the speed to the throttle from the driveStick
