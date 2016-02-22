@@ -29,7 +29,13 @@ public class Drive extends Command {
     		driveY = 0;
     	}	else	{
     	
-    		driveY = Robot.oi.getDriveStick().getY();
+    		if(Robot.oi.getDriveStick().getY() < 0)	{
+    			
+    			driveY = -Math.pow(Robot.oi.getDriveStick().getY(), 2);
+    		}	else	{
+    			
+    			driveY = Math.pow(Robot.oi.getDriveStick().getY(), 2);
+    		}
     	}
     	
     	//Chack Z-axis deadzone
@@ -39,11 +45,17 @@ public class Drive extends Command {
     	}	else	{
     		
     		//Adjust for smaller range of motion on the Z-axis
-    		driveZ = (Robot.oi.getDriveStick().getZ()/1.25);
+    		if(Robot.oi.getDriveStick().getZ() < 0)	{
+    			
+    			driveZ = -Math.pow(Robot.oi.getDriveStick().getZ()/1.25, 2);
+    		}	else	{
+    			
+        		driveZ = Robot.oi.getDriveStick().getZ()/1.25;
+    		}
     	}
     	
     	//Drive the robot
-    	Robot.drivetrain.drive(Math.pow(driveZ, 2), Math.pow(driveY, 2), Robot.speed);
+    	Robot.drivetrain.drive(driveY, driveZ, Robot.speed);
 	}
 
 	protected boolean isFinished() {

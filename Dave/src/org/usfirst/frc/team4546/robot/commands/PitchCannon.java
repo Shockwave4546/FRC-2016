@@ -10,8 +10,8 @@ public class PitchCannon extends Command {
 	
 	double speed;
 	
-	public PitchCannon(double speed) {
-		this.speed = speed;
+	public PitchCannon() {
+		
 	}
 		
 	protected void end() {
@@ -21,8 +21,13 @@ public class PitchCannon extends Command {
 
 	protected void execute() {
 		
-		
-		Robot.cannon.setPitchMotor(-Math.pow(Robot.oi.getGunnerStick().getY(), 2), Robot.cannonSpeed);
+		if(Robot.oi.getGunnerStick().getZ() < 0)	{
+			
+			speed = -Math.pow(Robot.oi.getGunnerStick().getY(), 2);
+		}	else	{
+			speed = Math.pow(Robot.oi.getGunnerStick().getY(), 2);
+		}
+		Robot.cannon.setPitchMotor(speed, Robot.cannonSpeed);
 	}
 
 	protected void initialize() {

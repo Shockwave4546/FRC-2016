@@ -9,8 +9,8 @@ public class YawCannon extends Command {
 	//This command controls the yaw of the cannon
 	
 	double speed;
-	public YawCannon(double speed) {
-		this.speed = speed;
+	public YawCannon() {
+		
 	}
 
 	protected void end() {
@@ -18,7 +18,14 @@ public class YawCannon extends Command {
 	}
 
 	protected void execute() {
-		Robot.cannon.setYawMotor(Math.pow(Robot.oi.getGunnerStick().getZ()/1.25, 2), Robot.cannonSpeed);
+		
+		if(Robot.oi.getGunnerStick().getZ() < 0)	{
+			
+			speed = -Math.pow(Robot.oi.getGunnerStick().getZ()/1.25, 2);
+		}	else	{
+			speed = Math.pow(Robot.oi.getGunnerStick().getZ()/1.25, 2);
+		}
+		Robot.cannon.setYawMotor(speed, Robot.cannonSpeed);
 	}
 
 	protected void initialize() {
