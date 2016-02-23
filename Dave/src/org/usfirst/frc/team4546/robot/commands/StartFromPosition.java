@@ -7,10 +7,10 @@ public class StartFromPosition extends CommandGroup {
 	public enum Position	{
 		
 		ONE		(0, 0, 0),
-		TWO		(1, 1, 1),
-		THREE 	(2, 2, 2),
-		FOUR	(3, 3, 3),
-		FIVE	(4, 4, 4);
+		TWO		(0, 39.65, 26.99),
+		THREE 	(0, 22.25, 31.47),
+		FOUR	(0, 0.60, 33.48),
+		FIVE	(0, 23.27, 31.28);
 		
 		private final double distance;
 		private final double yaw;
@@ -41,9 +41,9 @@ public class StartFromPosition extends CommandGroup {
 	
 	public StartFromPosition(Position position)	{
 		
-		addSequential(new AutoDrive(1, 0));
-		addSequential(new AutoYawCannon(1, 270));
-		addSequential(new AutoPitchCannon(1, 0));
+		addSequential(new AutoDrive(1, position.distance()));
+		addSequential(new AutoYawCannon(-1, position.yaw()));
+		addSequential(new AutoPitchCannon(-1, position.pitch()));
 		addSequential(new FireCannon());
 		
 	}
