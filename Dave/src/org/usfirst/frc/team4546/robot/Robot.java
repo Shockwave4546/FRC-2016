@@ -72,6 +72,7 @@ public class Robot extends IterativeRobot {
         
         chooser = new SendableChooser();
         chooser.addDefault("No Auto", null);
+        chooser.addObject("Just Goose It", new DriveOverObstacle());
         chooser.addObject("Spy Auto", new SpyAuto());
         chooser.addObject("Position 2", new StartFromPosition(StartFromPosition.Position.TWO));
         chooser.addObject("Position 3", new StartFromPosition(StartFromPosition.Position.THREE));
