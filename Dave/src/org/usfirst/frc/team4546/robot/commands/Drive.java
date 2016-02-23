@@ -57,7 +57,7 @@ public class Drive extends Command {
     	//Drive the robot
     	Robot.drivetrain.drive(driveZ, driveY, Robot.speed);
     	*/
-		Robot.drivetrain.drive(Robot.oi.getDriveStick().getRawAxis(0), Robot.oi.getGunnerStick().getRawAxis(2), Robot.speed);
+		Robot.drivetrain.drive(Robot.oi.getDriveStick().getRawAxis(0), Robot.oi.getDriveStick().getRawAxis(2), Robot.speed);
 	}
 
 	protected boolean isFinished() {
