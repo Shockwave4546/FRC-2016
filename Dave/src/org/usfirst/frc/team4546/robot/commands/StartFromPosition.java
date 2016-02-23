@@ -10,7 +10,7 @@ public class StartFromPosition extends CommandGroup {
 		TWO		(59.6, 39.65, 26.99),
 		THREE 	(59.6, 22.25, 31.47),
 		FOUR	(59.6, 0.60, 33.48),
-		FIVE	(59.9, 23.27, 31.28);
+		FIVE	(59.6, 23.27, 31.28);
 		
 		private final double distance;
 		private final double yaw;

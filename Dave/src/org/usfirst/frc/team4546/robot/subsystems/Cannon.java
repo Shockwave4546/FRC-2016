@@ -25,19 +25,21 @@ public class Cannon extends Subsystem {
 	//Set speed of pitch motor
 	public void setPitchMotor(double move, double speed) {
 		
-		if(Robot.leftLimit <= Robot.cannon.getYaw() && Robot.rightLimit >= Robot.cannon.getYaw())	{
+		/*if(Robot.leftLimit <= Robot.cannon.getYaw() && Robot.rightLimit >= Robot.cannon.getYaw())	{
 
 			pitchMotor.set(move*speed);
-		}
+		}*/
+		pitchMotor.set(move*speed);
 	}
 	
 	//Set speed of yaw motor
 	public void setYawMotor(double move, double speed) {
 
-		if(Robot.upperLimit >= Robot.cannon.getPitch() && Robot.lowerLimit <= Robot.cannon.getPitch())	{
+		/*if(Robot.upperLimit >= Robot.cannon.getPitch() && Robot.lowerLimit <= Robot.cannon.getPitch())	{
 
 			yawMotor.set(move*speed);
-		}
+		}*/
+		yawMotor.set(move*speed);
 	}
 	
 	//Set speed of left firing motor
