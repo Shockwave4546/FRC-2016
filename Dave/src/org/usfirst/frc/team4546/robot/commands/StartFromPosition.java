@@ -7,10 +7,10 @@ public class StartFromPosition extends CommandGroup {
 	public enum Position	{
 		
 		ONE		(0, 0, 0),
-		TWO		(0, 39.65, 26.99),
-		THREE 	(0, 22.25, 31.47),
-		FOUR	(0, 0.60, 33.48),
-		FIVE	(0, 23.27, 31.28);
+		TWO		(59.6, 39.65, 26.99),
+		THREE 	(59.6, 22.25, 31.47),
+		FOUR	(59.6, 0.60, 33.48),
+		FIVE	(59.9, 23.27, 31.28);
 		
 		private final double distance;
 		private final double yaw;

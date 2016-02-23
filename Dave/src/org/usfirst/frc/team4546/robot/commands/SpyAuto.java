@@ -7,7 +7,7 @@ public class SpyAuto extends CommandGroup {
 	public SpyAuto()	{
 		
 		addSequential(new AutoDrive(1, 0));
-		addSequential(new AutoYawCannon(1, 270));
+		addSequential(new AutoYawCannon(-1, -90));
 		addSequential(new AutoPitchCannon(1, 0));
 		addSequential(new FireCannon());
 		
