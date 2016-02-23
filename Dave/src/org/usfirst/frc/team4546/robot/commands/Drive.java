@@ -22,7 +22,7 @@ public class Drive extends Command {
 
 	protected void execute() {
 	
-    	
+    	/*
     	//Check X-axis deadzone
     	if (Robot.oi.getDriveStick().getY() <= .04 && Robot.oi.getDriveStick().getY() >= -.04)	{
     		
@@ -56,6 +56,8 @@ public class Drive extends Command {
     	
     	//Drive the robot
     	Robot.drivetrain.drive(driveZ, driveY, Robot.speed);
+    	*/
+		Robot.drivetrain.drive(Robot.oi.getDriveStick().getRawAxis(0), Robot.oi.getGunnerStick().getRawAxis(2), Robot.speed);
 	}
 
 	protected boolean isFinished() {
