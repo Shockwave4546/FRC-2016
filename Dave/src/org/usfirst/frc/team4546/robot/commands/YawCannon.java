@@ -39,8 +39,7 @@ public class YawCannon extends Command {
 	}
 
 	protected boolean isFinished() {
-		//TODO change to &&
-		return !(Robot.leftLimit <= Robot.cannon.getYaw() || Robot.rightLimit >= Robot.cannon.getYaw());
+		return !(Robot.leftLimit <= Robot.cannon.getYaw() && Robot.rightLimit >= Robot.cannon.getYaw());
 	}
 
 }
