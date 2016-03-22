@@ -40,7 +40,8 @@ public class Robot extends IterativeRobot {
 	public static final double leftLimit = -130;
 	public static final double rightLimit = 180;
 	public static final double homeYaw = 175;
-	public static final double homePitch = 16.5;
+	public static final double clearPitch = 16.5;
+	public static final double homePitch = 13;
 	
 	final NIVision.Point maxVertical = new NIVision.Point(320, 235);
     final NIVision.Point minVertical = new NIVision.Point(320, 0);

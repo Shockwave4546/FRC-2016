@@ -9,9 +9,9 @@ public class HomeCannon extends CommandGroup {
 	public HomeCannon()	{
 		
 		requires(Robot.cannon);
-		addSequential(new AutoPitchCannon(-1, Robot.homePitch));
+		addSequential(new AutoPitchCannon(-1, Robot.clearPitch));
 		addSequential(new AutoYawCannon(.9, Robot.homeYaw));
-		
+		addSequential(new AutoPitchCannon(1, Robot.homePitch));
 	}
 
 }
