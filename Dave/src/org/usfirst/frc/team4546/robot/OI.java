@@ -64,7 +64,7 @@ public class OI {
 			   	
 			  //Uncomment any button to open it for binding
 			   	Button trigger = new JoystickButton(gunnerStick, 1);
-			   	//Button thumbButton = new JoystickButton(gunnerStick, 2);
+			   	Button thumbButton = new JoystickButton(gunnerStick, 2);
 			   	//Button threeButton = new JoystickButton(gunnerStick, 3);
 			   	//Button fourButton = new JoystickButton(gunnerStick, 4);
 			   	//Button fiveButton= new JoystickButton(gunnerStick, 5);
@@ -81,6 +81,7 @@ public class OI {
 			   	
 			   	gunnerStickUp.whileActive(new MoveIntake(.5));
 			   	gunnerStickDown.whileActive(new MoveIntake(-.75));
+			   	thumbButton.whenPressed(new HomeCannon());
 			   	
 			   	trigger.whenPressed(new FireCannon());
 	}

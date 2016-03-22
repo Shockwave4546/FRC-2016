@@ -35,10 +35,12 @@ public class Robot extends IterativeRobot {
 	public static double speed;
 	public static double cannonSpeed;
 	int session;
-	public static final double upperLimit = 39;
-	public static final double lowerLimit = -57;
+	public static final double upperLimit = 50;
+	public static final double lowerLimit = -40;
 	public static final double leftLimit = -130;
 	public static final double rightLimit = 180;
+	public static final double homeYaw = 175;
+	public static final double homePitch = 16.5;
 	
 	final NIVision.Point maxVertical = new NIVision.Point(320, 235);
     final NIVision.Point minVertical = new NIVision.Point(320, 0);
@@ -156,6 +158,7 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putData(cannon);
     	SmartDashboard.putData(drivetrain);
         
+    	SmartDashboard.putNumber("Other Puitch", cannon.getRawPitch()*72);
     }
     
     /**

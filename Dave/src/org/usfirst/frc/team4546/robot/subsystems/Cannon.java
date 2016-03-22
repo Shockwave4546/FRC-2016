@@ -73,10 +73,10 @@ public class Cannon extends Subsystem {
 	//Pitch of cannon
 	public double getPitch()	{
 		
-		if(pitchEncoder.getVoltage() <= 2.5)	{
-			return -(72*pitchEncoder.getVoltage() - 360);
+		if(pitchEncoder.getVoltage()*72 <= 180)	{
+			return -(72*pitchEncoder.getVoltage());
 		}	else	{
-			return 72*pitchEncoder.getVoltage() - 360;
+			return 360 - 72*pitchEncoder.getVoltage();
 		}
 		
 	}
