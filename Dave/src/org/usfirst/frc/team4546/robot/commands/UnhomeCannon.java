@@ -10,6 +10,7 @@ public class UnhomeCannon extends CommandGroup {
 		
 		requires(Robot.cannon);
 		addSequential(new AutoPitchCannon(-1, Robot.clearPitch));
+		addSequential(new AutoYawCannon(-1, 0));
 				
 	}
 

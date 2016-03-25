@@ -76,17 +76,21 @@ public class Robot extends IterativeRobot {
         chooser = new SendableChooser();
         chooser.addDefault("No Auto", null);
         chooser.addObject("Just Goose It", new DriveOverObstacle());
-        chooser.addObject("Spy Auto", new SpyAuto());
+        /*chooser.addObject("Spy Auto", new SpyAuto());
         chooser.addObject("Position 2", new StartFromPosition(StartFromPosition.Position.TWO));
         chooser.addObject("Position 3", new StartFromPosition(StartFromPosition.Position.THREE));
         chooser.addObject("Position 4", new StartFromPosition(StartFromPosition.Position.FOUR));
-        chooser.addObject("Position 5", new StartFromPosition(StartFromPosition.Position.FIVE));
+        chooser.addObject("Position 5", new StartFromPosition(StartFromPosition.Position.FIVE));*/
+        chooser.addObject("Rampart", new DriveOverObstacle(DriveOverObstacle.Obstacle.RAMPART));
+        chooser.addObject("Moat", new DriveOverObstacle(DriveOverObstacle.Obstacle.MOAT));
+        chooser.addObject("Wall", new DriveOverObstacle(DriveOverObstacle.Obstacle.WALL));
+        chooser.addObject("Terrain", new DriveOverObstacle(DriveOverObstacle.Obstacle.TERRAIN));
         SmartDashboard.putData("Auto mode", chooser);
         
         cannon.setFeedServo(70);
         
         frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-        session = NIVision.IMAQdxOpenCamera("cam0",
+        session = NIVision.IMAQdxOpenCamera("cam2",
                 NIVision.IMAQdxCameraControlMode.CameraControlModeController);
         		NIVision.IMAQdxConfigureGrab(session);
         
