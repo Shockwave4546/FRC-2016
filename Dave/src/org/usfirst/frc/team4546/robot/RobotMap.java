@@ -70,9 +70,14 @@ public class RobotMap {
         cannonYawMotor = new CANTalon(1);
         LiveWindow.addActuator("Cannon", "Yaw Motor", (CANTalon) cannonYawMotor);
         
+        cannonYawMotor.setVoltageRampRate(.75);
+        cannonYawMotor.setInverted(true);
+        
         //Cannon objects
         cannonPitchMotor = new CANTalon(0);
         LiveWindow.addActuator("Cannon", "Pitch Motor", (CANTalon) cannonPitchMotor);
+        
+        cannonPitchMotor.setVoltageRampRate(.25);
         
         cannonFireLeft = new CANTalon(2);
         LiveWindow.addActuator("Cannon", "Left Firing Motor", (CANTalon) cannonFireLeft);

@@ -6,29 +6,36 @@ public class DriveOverObstacle extends CommandGroup {
 
 	public enum Obstacle	{
 		
-		RAMPART	(-1),
-		MOAT	(-1),
-		WALL	(-1),
-		TERRAIN	(-1);
+		RAMPART	(.9, 2.5),
+		MOAT	(.9, 2.5),
+		WALL	(.9, 2.5),
+		TERRAIN	(.9, 2.5);
 		
 		private final double speed;
-		Obstacle(double speed)	{
+		private final double timeout;
+		
+		Obstacle(double speed, double timeout)	{
 			this.speed = speed;
+			this.timeout = timeout;
 		}
 		
 		double speed()	{
-			 return speed;
+			return speed;
+		}
+		
+		double timeout()	{
+			return timeout;
 		}
 	}
 	
 	public DriveOverObstacle(Obstacle obstacle)	{
 		
-		addSequential(new AutoDrive(obstacle.speed(), 59.6));
+		addSequential(new AutoDrive(obstacle.speed()), obstacle.timeout());
 	}
 	
 	public DriveOverObstacle()	{
 		
-		addSequential(new AutoDrive(-1, 59.6));
+		addSequential(new AutoDrive(1), 2.5);
 	}
 
 }

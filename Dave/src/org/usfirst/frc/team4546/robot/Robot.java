@@ -3,6 +3,7 @@ package org.usfirst.frc.team4546.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -114,6 +115,7 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         autonomousCommand = (Command) chooser.getSelected();
         if (autonomousCommand != null) autonomousCommand.start();
+        SmartDashboard.putNumber("Match Time", Timer.getMatchTime());
         
     }
 
@@ -123,6 +125,7 @@ public class Robot extends IterativeRobot {
     
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Match Time", Timer.getMatchTime());
     }
 
     public void teleopInit() {
@@ -131,6 +134,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        SmartDashboard.putNumber("Match Time", Timer.getMatchTime());
         
     }
 
@@ -162,8 +166,7 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putBoolean("Has Ball?", cannon.hasBall());
     	SmartDashboard.putData(cannon);
     	SmartDashboard.putData(drivetrain);
-        
-    	SmartDashboard.putNumber("Other Puitch", cannon.getRawPitch()*72);
+        SmartDashboard.putNumber("Match Time", Timer.getMatchTime());
     }
     
     /**

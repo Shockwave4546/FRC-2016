@@ -41,7 +41,7 @@ public class StartFromPosition extends CommandGroup {
 	
 	public StartFromPosition(Position position)	{
 		
-		addSequential(new AutoDrive(-1, position.distance()));
+		addSequential(new AutoDrive(-1), 2.5);
 		addSequential(new AutoYawCannon(-1, position.yaw()));
 		addSequential(new AutoPitchCannon(-1, position.pitch()));
 		addSequential(new FireCannon());

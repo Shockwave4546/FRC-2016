@@ -21,12 +21,7 @@ public class PitchCannon extends Command {
 
 	protected void execute() {
 		
-		if(Robot.oi.getGunnerStick().getY() < 0)	{
-			
-			speed = Math.pow(Robot.oi.getGunnerStick().getY(), 2);
-		}	else	{
-			speed = -Math.pow(Robot.oi.getGunnerStick().getY(), 2);
-		}
+		speed = -Robot.oi.getGunnerStick().getY();
 		Robot.cannon.setPitchMotor(speed, Robot.cannonSpeed);
 	}
 

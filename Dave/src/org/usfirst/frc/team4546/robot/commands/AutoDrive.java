@@ -9,10 +9,9 @@ public class AutoDrive extends Command {
 	double speed;
 	double distance;
 	
-	public AutoDrive(double speed, double distance)	{
+	public AutoDrive(double speed)	{
 		
 		this.speed = speed;
-		this.distance = distance;
 		requires(Robot.drivetrain);
 	}
 	
@@ -22,12 +21,12 @@ public class AutoDrive extends Command {
 
 	protected void execute() {
 		
-		Robot.drivetrain.drive(speed, 0, 1);
+		Robot.drivetrain.drive(0, speed, 1);
 	}
 
 	protected boolean isFinished() {
 
-		return Robot.drivetrain.getDisplacementX() == distance;
+		return false;
 	}
 
 	protected void end() {
