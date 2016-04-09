@@ -58,6 +58,7 @@ public class Robot extends IterativeRobot {
     Command autonomousCommand;
     SendableChooser chooser;
     Image frame;
+    boolean failed = false;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -145,13 +146,24 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        //Draw crosshairs on camera image
-        NIVision.IMAQdxGrab(session, frame, 1);
-        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal, minHorizontal, 0.0f);
-        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical, minVertical, 0.0f);
-        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal2, minHorizontal2, 0.0f);
-        NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical2, minVertical2, 0.0f);
-        CameraServer.getInstance().setImage(frame);
+        //Check if failed before
+        if(!failed)	{
+
+            //Draw crosshairs on camera image
+        	try	{
+        		NIVision.IMAQdxGrab(session, frame, 1);
+            	NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal, minHorizontal, 0.0f);
+            	NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical, minVertical, 0.0f);
+            	NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal2, minHorizontal2, 0.0f);
+            	NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical2, minVertical2, 0.0f);
+            	CameraServer.getInstance().setImage(frame);
+        	}
+        	
+        	catch(Exception ex)	{
+        		failed = true;
+        	}
+    	}
+        
         
         //Set the speed to the throttle from the driveStick
     	speed = ((-oi.getDriveStick().getThrottle() + 1) / 2);
