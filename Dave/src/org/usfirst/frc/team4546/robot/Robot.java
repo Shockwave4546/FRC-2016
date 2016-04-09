@@ -58,7 +58,7 @@ public class Robot extends IterativeRobot {
     Command autonomousCommand;
     SendableChooser chooser;
     Image frame;
-    boolean failed = false;
+    boolean failed;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -136,6 +136,7 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         SmartDashboard.putNumber("Match Time", Timer.getMatchTime());
+        failed = false;
         
     }
 
