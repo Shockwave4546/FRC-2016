@@ -1,7 +1,8 @@
 
 package org.usfirst.frc.team4546.robot;
-
+/* TKC - 8/23/2017 
 import edu.wpi.first.wpilibj.CameraServer;
+*/
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -11,10 +12,11 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team4546.robot.subsystems.*;
 import org.usfirst.frc.team4546.robot.commands.*;
 
+/* TKC - 8/23/2017 
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.DrawMode;
 import com.ni.vision.NIVision.Image;
-
+*/
 //import org.usfirst.frc.team4546.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -44,6 +46,7 @@ public class Robot extends IterativeRobot {
 	public static final double clearPitch = 16.5;
 	public static final double homePitch = 13;
 	
+	/* TKC - 8/23/2017 
 	final NIVision.Point maxVertical = new NIVision.Point(320, 235);
     final NIVision.Point minVertical = new NIVision.Point(320, 0);
 	final NIVision.Point maxVertical2 = new NIVision.Point(320, 245);
@@ -53,11 +56,14 @@ public class Robot extends IterativeRobot {
     final NIVision.Point maxHorizontal2 = new NIVision.Point(315, 235);
     final NIVision.Point minHorizontal2 = new NIVision.Point(315, 245);
 	CameraServer camera;
+	*/
 	//public static NetworkTable table;
 	
     Command autonomousCommand;
     SendableChooser chooser;
-    Image frame;
+    /* TKC - 8/23/2017 
+     Image frame;
+     */
 
     /**
      * This function is run when the robot is first started up and should be
@@ -90,11 +96,12 @@ public class Robot extends IterativeRobot {
         
         cannon.setFeedServo(70);
         
+        /* TKC - 8/23/2017 
         frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
         session = NIVision.IMAQdxOpenCamera("cam2",
                 NIVision.IMAQdxCameraControlMode.CameraControlModeController);
         		NIVision.IMAQdxConfigureGrab(session);
-        
+        */
     }
 	
 	/**
@@ -145,6 +152,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         
     	Scheduler.getInstance().run();
+    	/* TKC - 8/23/2017 
         		
     	NIVision.IMAQdxGrab(session, frame, 1);
         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal, minHorizontal, 0.0f);
@@ -152,7 +160,7 @@ public class Robot extends IterativeRobot {
         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxHorizontal2, minHorizontal2, 0.0f);
         NIVision.imaqDrawLineOnImage(frame, frame, DrawMode.DRAW_VALUE, maxVertical2, minVertical2, 0.0f);
         CameraServer.getInstance().setImage(frame);
- 
+*/ 
         //Set the speed to the throttle from the driveStick
     	speed = ((-oi.getDriveStick().getThrottle() + 1) / 2);
     	cannonSpeed = ((-oi.getGunnerStick().getThrottle() + 1) / 2);
