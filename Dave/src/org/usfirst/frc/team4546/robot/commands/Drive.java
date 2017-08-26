@@ -9,7 +9,7 @@ public class Drive extends Command {
 	//This command handles driving the robot
 	
 	double driveY;
-	double driveZ;
+	double driveX;
 	
 	public Drive()	{
 		
@@ -38,24 +38,24 @@ public class Drive extends Command {
     		}
     	}
     	
-    	//Chack Z-axis deadzone
-    	if (Robot.oi.getDriveStick().getZ() <= .01 && Robot.oi.getDriveStick().getZ() >= -.01)	{
+    	//Chack X-axis deadzone
+    	if (Robot.oi.getDriveStick().getX() <= .01 && Robot.oi.getDriveStick().getX() >= -.01)	{
     		
-    		driveZ = 0;
+    		driveX = 0;
     	}	else	{
     		
-    		//Adjust for smaller range of motion on the Z-axis
-    		if(Robot.oi.getDriveStick().getZ() < 0)	{
+    		//Adjust for smaller range of motion on the X-axis
+    		if(Robot.oi.getDriveStick().getX() < 0)	{
     			
-    			driveZ = -Math.pow(Robot.oi.getDriveStick().getZ(), 2);
+    			driveX = -Math.pow(Robot.oi.getDriveStick().getX(), 2);
     		}	else	{
     			
-        		driveZ = Math.pow(Robot.oi.getDriveStick().getZ(), 2);
+        		driveX = Math.pow(Robot.oi.getDriveStick().getX(), 2);
     		}
     	}
     	
     	//Drive the robot
-    	Robot.drivetrain.drive(driveZ, driveY, Robot.speed);
+    	Robot.drivetrain.drive(driveX, driveY, Robot.speed);
 	}
 
 	protected boolean isFinished() {
