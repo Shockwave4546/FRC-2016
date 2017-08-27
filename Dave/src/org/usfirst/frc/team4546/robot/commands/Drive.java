@@ -31,10 +31,14 @@ public class Drive extends Command {
     	
     		if(Robot.oi.getDriveStick().getY() < 0)	{
     			
-    			driveY = -Math.pow(Robot.oi.getDriveStick().getY(), 2);
+    			// tkc - 8/26/2017 changing the multiplier from 2 to 10 to see if it fix speed
+    			// driveY = -Math.pow(Robot.oi.getDriveStick().getY(), 2);
+    			driveY = -Math.pow(Robot.oi.getDriveStick().getY(), 10);
     		}	else	{
     			
-    			driveY = Math.pow(Robot.oi.getDriveStick().getY(), 2);
+    			// tkc - 8/26/2017 changing the multiplier from 2 to 10 to see if it fix speed
+    			// driveY = Math.pow(Robot.oi.getDriveStick().getY(), 2);
+    			driveY = Math.pow(Robot.oi.getDriveStick().getY(), 10);
     		}
     	}
     	
@@ -46,16 +50,21 @@ public class Drive extends Command {
     		
     		//Adjust for smaller range of motion on the X-axis
     		if(Robot.oi.getDriveStick().getX() < 0)	{
-    			
-    			driveX = -Math.pow(Robot.oi.getDriveStick().getX(), 2);
+    			// tkc - 8/26/2017 changing the multiplier from 2 to 10 to see if it fix speed
+    			// nbp 8/26/2017 - turning is very slow compared to forward/backwards
+    			// driveX = -Math.pow(Robot.oi.getDriveStick().getX(), 2);
+    			driveX = -Math.pow(Robot.oi.getDriveStick().getX(), 10);
     		}	else	{
     			
-        		driveX = Math.pow(Robot.oi.getDriveStick().getX(), 2);
+    			// tkc - 8/26/2017 changing the multiplier from 2 to 10 to see if it fix speed
+        		// driveX = Math.pow(Robot.oi.getDriveStick().getX(), 2);
+        		driveX = Math.pow(Robot.oi.getDriveStick().getX(), 10);
     		}
     	}
     	
     	//Drive the robot
     	Robot.drivetrain.drive(driveX, driveY, Robot.speed);
+        //Robot.drivetrain.drive(driveY, driveX, Robot.speed);
 	}
 
 	protected boolean isFinished() {

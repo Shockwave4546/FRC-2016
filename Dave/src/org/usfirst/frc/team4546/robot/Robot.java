@@ -162,7 +162,13 @@ public class Robot extends IterativeRobot {
         CameraServer.getInstance().setImage(frame);
 */ 
         //Set the speed to the throttle from the driveStick
-    	speed = ((-oi.getDriveStick().getThrottle() + 1) / 2);
+    	// nbp 8/26/2017 - there may be something janky about this speed calculation - we believe 
+    	// that this is what's causing the speed problem
+    	// nbp 8/26/2017 - turned out the throttle axis on the new joystick is actually the Z axis
+    	// nbp 8/26/2017 - hardcoding for MakerFaire b/c the axis isn't behaving well
+    	//speed = ((-oi.getDriveStick().getThrottle() + 1) / 2);
+    	speed = (-oi.getDriveStick().getZ() + 1) / 2;
+    	//speed = 0.75;
     	cannonSpeed = ((-oi.getGunnerStick().getThrottle() + 1) / 2);
         
         //Send necessary values to dashboard

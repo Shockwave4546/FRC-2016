@@ -79,11 +79,13 @@ public class OI {
 			   	POVButton gunnerStickUp = new POVButton(gunnerStick, 0, 0);
 			   	POVButton gunnerStickDown = new POVButton(gunnerStick, 0, 180);
 			   	
-			   	gunnerStickUp.whileActive(new MoveIntake(.5));
-			   	gunnerStickDown.whileActive(new MoveIntake(-.75));
+			   	// nbp 8/26/2017 - swapped gunner stick directions for MakerFaire
+			   	gunnerStickDown.whileActive(new MoveIntake(.5));
+			   	gunnerStickUp.whileActive(new MoveIntake(-.75));
 			   	//thumbButton.whenPressed(new HomeCannon());
-			   	
-			   	trigger.whenPressed(new FireCannon());
+			   
+			   	// nbp 8/26/2017 - disable fire for MakerFaire
+			   	//trigger.whenPressed(new FireCannon());
 			   	
 			   	//threeButton.whenPressed(new UnhomeCannon());
 	}
